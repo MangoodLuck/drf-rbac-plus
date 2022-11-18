@@ -12,6 +12,8 @@ class PermissionTypes(models.TextChoices):
 class Role(models.Model):
     name = models.CharField(max_length=64, unique=True)
     comment = models.TextField(_("Comment"), null=True, blank=True)
+    user = models.ManyToManyField(User, blank=True, through="UserRoleMembership",
+                                  verbose_name=u"Related User-Role")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -22,6 +24,21 @@ class Role(models.Model):
         verbose_name = _("Role")
         verbose_name_plural = verbose_name
         ordering = ('-created',)
+
+
+class UserRoleMembership(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    role = models.ForeignKey(Role, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{} has {}'.format(self.user.username, self.role.name)
+
+    class Meta:
+        verbose_name = _("User Role")
+        verbose_name_plural = verbose_name
+        unique_together = (
+            ('user', 'role'),
+        )
 
 
 class HttpMethod(models.Model):

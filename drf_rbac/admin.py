@@ -1,8 +1,7 @@
 from __future__ import unicode_literals
-
 from django.contrib import admin
 from django.db import transaction
-from .models import Role, Api, HttpMethod, ApiMethodMembership, Permission, UserToPermission
+from .models import Role, Api, HttpMethod, ApiMethodMembership, Permission, UserToPermission, UserRoleMembership
 from django import forms
 from django.utils.html import format_html
 
@@ -19,10 +18,17 @@ class RoleForm(forms.ModelForm):
                                        validators=[role_validate])
 
 
+class UsersInline(admin.TabularInline):
+    model = UserRoleMembership
+
+
 class RoleAdmin(admin.ModelAdmin):
     form = RoleForm
     list_display = ('name', 'show_permission_num',)
     search_fields = ('name', 'comment')
+    inlines = [
+        UsersInline,
+    ]
 
     def show_permission_num(self, obj):
         count = obj.role_permission.count()
