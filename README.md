@@ -1,6 +1,8 @@
-# Django RBAC plus
+# Django-Rest-Framework RBAC plus
 
-**tool**
+**Based on the django USER model, a permission system based on RBAC mode is implemented, 
+which provides a background admin entry mechanism for permission, 
+and implements permission control with drf middleware.**
 
 ---
 
