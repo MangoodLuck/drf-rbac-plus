@@ -26,6 +26,16 @@ INSTALLED_APPS = [
     'drf_rbac',
 ]
 ```
+
+Add path to your URL setting.
+
+```
+urlpatterns = [
+    ...
+    path('drf_rbac/', include('drf_rbac.urls')),
+]
+```
+
 ## Example
 
 ### RegexValidator
