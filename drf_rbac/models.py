@@ -1,5 +1,5 @@
 from django.db import models
-from django.conf import settings
+from .settings import User
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -96,7 +96,7 @@ class Permission(models.Model):
 class UserToPermission(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
                                 related_name='user_permission')
     permission = models.ManyToManyField(Permission)
 

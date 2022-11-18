@@ -93,8 +93,8 @@ class ApiAdmin(admin.ModelAdmin):
                 results.append("{},{}".format(permission.id, permission.name))
         res = ""
         for i in set(results):
-            aid, aname = i.split(",")
-            res += "<a href='/admin/permission/permission/{}/change'>{}</a> </br>".format(aid, aname)
+            _, name = i.split(",")
+            res += "<a href='/admin/drf_rbac/permission/?q={name}'>{name}</a> </br>".format(name=name)
         text = """<div>
                     <div style="margin-left:20px;margin-bottom:5px;margin-top:5px">
                     <a style="border-style:outset;padding:2px" onclick="
