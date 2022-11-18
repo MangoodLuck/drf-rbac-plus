@@ -1,0 +1,28 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+
+{% block content %}
+    <div>
+        <label><h2>{{ role_name }} permission </h2> </label>
+        </br>
+        <table class="table" table-layout="fixed" width="600px">
+            <thead>
+                <tr>
+                    {% for h in header %}
+                        <th> {{ h }} </th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for tr in permission %}
+                    <tr>
+                        {% for td in tr %}
+                            <td> {{ td | safe }} </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
