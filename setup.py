@@ -6,8 +6,8 @@ from os import path as os_path
 import os
 
 this_directory = os_path.abspath(os_path.dirname(__file__))
-URL = 'https://github.com/MangoodLuck/django-rbac-plus.git'
-NAME = 'django-rbac-plus'
+URL = 'https://github.com/MangoodLuck/drf-rbac-plus.git'
+NAME = 'drf-rbac-plus'
 VERSION = '1.0.0'
 DESCRIPTION = 'rbac permission plus'
 if os.path.exists('README.md'):

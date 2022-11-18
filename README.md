@@ -15,7 +15,7 @@ I **highly recommend** and only officially support the latest patch release of e
 Install using pip...
 
 ```
-pip install django-rbac-plus
+pip install drf-rbac-plus
 ```
 
 Add 'drf_rbac' to your INSTALLED_APPS setting.
