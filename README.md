@@ -38,6 +38,15 @@ urlpatterns = [
 ]
 ```
 
+Add UserRolePermission to your DEFAULT_PERMISSION_CLASSES(django-restframework setting).
+
+```
+    'DEFAULT_PERMISSION_CLASSES': (
+        ...
+        'drf_rbac.authorization.UserRolePermission',
+    ),
+```
+
 ## Example
 
 ### RegexValidator
