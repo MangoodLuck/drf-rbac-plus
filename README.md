@@ -38,7 +38,7 @@ urlpatterns = [
 ]
 ```
 
-Add UserRolePermission to your DEFAULT_PERMISSION_CLASSES(django-restframework setting).
+Add UserRolePermission to your Django-Rest-Framework settings.
 
 ```
     'DEFAULT_PERMISSION_CLASSES': (
